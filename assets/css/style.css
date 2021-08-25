@@ -43,9 +43,13 @@ h3 {
 
 
 .checkbox {
-    margin: 10px;
-    font-size: 40px;
+    margin: 20px;
+    font-size: 30px;
     font-weight: 2px;
+}
+
+.form-check {
+    margin: 0px 20px;
 }
 
 .results {
