@@ -56,9 +56,9 @@ function getSoccerApi(){
 }
 
 function getBaseballApi(){
-    var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=MLB";
+    var baseBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=MLB";
 
-    fetch(soccerApi)
+    fetch(baseBallApi)
     .then (function(response){
         console.log(response)
 
@@ -70,9 +70,9 @@ function getBaseballApi(){
 }
 
 function getBasketballApi(){
-    var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
+    var basketBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
 
-    fetch(soccerApi)
+    fetch(basketBallApi)
     .then (function(response){
         console.log(response)
 
