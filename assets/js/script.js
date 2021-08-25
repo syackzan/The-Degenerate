@@ -89,3 +89,22 @@ buttonS.addEventListener("click", getSoccerApi);
 buttonBase.addEventListener("click", getBaseballApi);
 buttonBask.addEventListener("click", getBasketballApi);
 
+var checkBox = $(".checkBox");
+
+var option1 = $("inlineCheckbox1");
+
+var option2 = $("inlineCheckbox2");
+
+var option3 = $("inlineCheckbox3");
+
+var option4 = $("inlineCheckbox4");
+
+var option5 = $("inlineCheckbox5");
+
+var option6 = $("inlineCheckbox6");
+
+checkBox.on('click', function(){
+    localStorage.setItem("Baseball", (option1.val()));
+    localStorage.setItem("Basketball", (option2.val()));
+    localStorage.setItem("Football", (option3.val()));
+})
