@@ -228,3 +228,8 @@ $("#inlineCheckbox3").append(localStorage.getItem("Football"));
 $("#inlineCheckbox4").append(localStorage.getItem("Golf"));
 $("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
 $("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
+
+//DatePicker Widget//
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );
