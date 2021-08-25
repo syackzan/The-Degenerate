@@ -47,3 +47,10 @@ h3 {
     font-size: 40px;
     font-weight: 2px;
 }
+
+.results {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    
+}
