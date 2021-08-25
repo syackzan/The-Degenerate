@@ -27,43 +27,49 @@
     </div>
 
     <!-- Search form -->
-    <div class="search-bar" id=" search-bar">
-        <h3>What day would you like to watch?</h3>
-        <input class="form-control" type="text" placeholder="Enter a day" aria-label="Search">
-        <h3>What time would you like to watch?</h3>
+    <div class="search-bar d-flex flex-wrap justify-content-center" id=" search-bar">
+        <div class="m-2">
+            <h3>What day would you like to watch?</h3>
+            <input class="form-control" type="text" placeholder="Enter a day" aria-label="Search">  
+        </div>
+        <div class="m-2">
+            <h3>What time would you like to watch?</h3>
         <input class="form-control" type="text" placeholder="Enter a time" aria-label="Search">
-        <div class="search-btn">
+        </div>
+        <div class="d-flex align-items-end search-btn m-2">
             <button type="button" class="btn btn-primary">Search</button>
         </div>
     </div>
 
     <!--Checkbox criteria-->
-    <div class="checkbox" id="checkbox">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">Baseball(MLB)</label>
+    <div class="d-flex justify-content-center">
+        <div class="d-flex flex-wrap justify-content-center checkbox" id="checkbox">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Baseball(MLB)</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Basketball(NBA)</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineCheckbox3">Football(NFL)</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option4">
+                <label class="form-check-label" for="inlineCheckbox4">Golf(PGA)</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option5">
+                <label class="form-check-label" for="inlineCheckbox5">Hockey(NHL)</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option6">
+                <label class="form-check-label" for="inlineCheckbox6">Soccer(EPL)</label>
+            </div>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">Basketball(NBA)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3">Football(NFL)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option4">
-            <label class="form-check-label" for="inlineCheckbox4">Golf(PGA)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option5">
-            <label class="form-check-label" for="inlineCheckbox5">Hockey(NHL)</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option6">
-            <label class="form-check-label" for="inlineCheckbox6">Soccer(EPL)</label>
-        </div>
-    </div>
+</div>
 
     <button id="buttonBet">Click Me for Odds</button>
     <button id="buttonS">Soccer Api Test</button>

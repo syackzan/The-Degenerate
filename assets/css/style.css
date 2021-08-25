@@ -43,10 +43,11 @@ h3 {
 
 
 .checkbox {
-    margin: 10px;
-    font-size: 40px;
+    margin: 20px;
+    font-size: 30px;
     font-weight: 2px;
 }
+
 
 .form {
     height: 100%;
@@ -54,4 +55,15 @@ h3 {
 
 .card {
     height: 100%;
+
+.form-check {
+    margin: 0px 20px;
+}
+
+.results {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    
+
 }
