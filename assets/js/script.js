@@ -2,6 +2,9 @@ console.log("Hello");
 
 var buttonBet = document.getElementById("buttonBet");
 var buttonF = document.getElementById("buttonF");
+var buttonS = document.getElementById("buttonS");
+var buttonBase = document.getElementById("buttonBase");
+var buttonBask = document.getElementById("buttonBask");
 
 
 function getApi(){
@@ -24,26 +27,65 @@ function getApi(){
 
 function getFootballApi() {
 
-    fetch("https://soccer-data.p.rapidapi.com/soccer/team/squad?teamId=801", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "soccer-data.p.rapidapi.com",
-            "x-rapidapi-key": "c5acb3456fmsh97e2594e822d81ep1162a1jsncab86d65f643"
-        }
-    })
-    .then(response => {
-        console.log(response);
+    var footballApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL";
+
+    fetch(footballApi)
+    .then (function(response){
+        console.log(response)
+
         return response.json();
     })
-    .then(function(data){
-        console.log(data);
-    })
-    .catch(err => {
-        console.error(err);
+    .then (function(data){
+        console.log(data)
     });
   
+}
+
+function getSoccerApi(){
+    var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League";
+
+    fetch(soccerApi)
+    .then (function(response){
+        console.log(response)
+
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data)
+    });
+}
+
+function getBaseballApi(){
+    var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=MLB";
+
+    fetch(soccerApi)
+    .then (function(response){
+        console.log(response)
+
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data)
+    });
+}
+
+function getBasketballApi(){
+    var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
+
+    fetch(soccerApi)
+    .then (function(response){
+        console.log(response)
+
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data)
+    });
 }
   
 buttonBet.addEventListener("click", getApi);
 buttonF.addEventListener("click", getFootballApi);
+buttonS.addEventListener("click", getSoccerApi);
+buttonBase.addEventListener("click", getBaseballApi);
+buttonBask.addEventListener("click", getBasketballApi);
 
