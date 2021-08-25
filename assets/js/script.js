@@ -5,7 +5,7 @@ var buttonF = document.getElementById("buttonF");
 var buttonS = document.getElementById("buttonS");
 var buttonBase = document.getElementById("buttonBase");
 var buttonBask = document.getElementById("buttonBask");
-var teamContainer = document.getElementById("teamContainer");
+var teamContainer = document.getElementById("checkbox");
 
 
 function getApi(){
@@ -29,8 +29,6 @@ function getApi(){
 function getFootballApi() {
 
     var footballApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL";
-    //https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4346
-    //https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL
 
     fetch(footballApi)
     .then (function(response){
@@ -40,6 +38,31 @@ function getFootballApi() {
     })
     .then (function(data){
         console.log(data)
+        for (var i = 0; i < data.teams.length; i++){
+            var sTeamBox = document.createElement("div");
+            var sTeamLogo = document.createElement("img");
+            var sTeamName = document.createElement("p");
+            var sTeamDescription = document.createElement("p");
+            var sTeamWebsite = document.createElement("a");
+
+            sTeamLogo.src = data.teams[i].strTeamBadge;
+            sTeamName.textContent = data.teams[i].strTream;
+            sTeamDescription.textContent = data.teams[i].strDescriptionEN;
+            sTeamWebsite.textContent = data.teams[i].strWebsite;
+            sTeamWebsite.href = data.teams[i].strWebsite;
+            
+            sTeamBox.setAttribute("style", "margin: 5px; border: 2px solid black");
+            sTeamLogo.setAttribute("style", "width: 50px; height: 50px;")
+            sTeamName.setAttribute("style", "font-weight: bold");
+            sTeamDescription.setAttribute("style", "font-size: 16px")
+            sTeamWebsite.setAttribute("style", "font-size: 16px")
+            
+            teamContainer.appendChild(sTeamBox);
+            sTeamBox.appendChild(sTeamLogo);
+            sTeamBox.appendChild(sTeamName);
+            sTeamBox.appendChild(sTeamDescription);
+            sTeamBox.appendChild(sTeamWebsite);
+        }
     });
   
 }
@@ -54,22 +77,27 @@ function getSoccerApi(){
         return response.json();
     })
     .then (function(data){
-        console.log(data)
-
-        for (var i = 0; i < teams.length; i++){
+        console.log(data);
+        console.log(data);
+        for (var i = 0; i < data.teams.length; i++){
             var sTeamBox = document.createElement("div");
             var sTeamLogo = document.createElement("img");
             var sTeamName = document.createElement("p");
             var sTeamDescription = document.createElement("p");
             var sTeamWebsite = document.createElement("a");
 
-            sTeamLogo.src = data[i].strTeamBadge;
-            sTeamName.textContent = data[i].strTream;
-            sTeamDescription = data[i].strDescriptionEN;
-            sTeamWebsite = data[i].strWebsite;
-
-            sTeamBox.setAttribute("style", "margin: 5x");
-
+            sTeamLogo.src = data.teams[i].strTeamBadge;
+            sTeamName.textContent = data.teams[i].strTream;
+            sTeamDescription.textContent = data.teams[i].strDescriptionEN;
+            sTeamWebsite.textContent = data.teams[i].strWebsite;
+            sTeamWebsite.href = data.teams[i].strWebsite;
+            
+            sTeamBox.setAttribute("style", "margin: 5px; border: 2px solid black");
+            sTeamLogo.setAttribute("style", "width: 50px; height: 50px;")
+            sTeamName.setAttribute("style", "font-weight: bold");
+            sTeamDescription.setAttribute("style", "font-size: 16px")
+            sTeamWebsite.setAttribute("style", "font-size: 16px")
+            
             teamContainer.appendChild(sTeamBox);
             sTeamBox.appendChild(sTeamLogo);
             sTeamBox.appendChild(sTeamName);
@@ -90,6 +118,31 @@ function getBaseballApi(){
     })
     .then (function(data){
         console.log(data)
+        for (var i = 0; i < data.teams.length; i++){
+            var sTeamBox = document.createElement("div");
+            var sTeamLogo = document.createElement("img");
+            var sTeamName = document.createElement("p");
+            var sTeamDescription = document.createElement("p");
+            var sTeamWebsite = document.createElement("a");
+
+            sTeamLogo.src = data.teams[i].strTeamBadge;
+            sTeamName.textContent = data.teams[i].strTream;
+            sTeamDescription.textContent = data.teams[i].strDescriptionEN;
+            sTeamWebsite.textContent = data.teams[i].strWebsite;
+            sTeamWebsite.href = data.teams[i].strWebsite;
+            
+            sTeamBox.setAttribute("style", "margin: 5px; border: 2px solid black");
+            sTeamLogo.setAttribute("style", "width: 50px; height: 50px;")
+            sTeamName.setAttribute("style", "font-weight: bold");
+            sTeamDescription.setAttribute("style", "font-size: 16px")
+            sTeamWebsite.setAttribute("style", "font-size: 16px")
+            
+            teamContainer.appendChild(sTeamBox);
+            sTeamBox.appendChild(sTeamLogo);
+            sTeamBox.appendChild(sTeamName);
+            sTeamBox.appendChild(sTeamDescription);
+            sTeamBox.appendChild(sTeamWebsite);
+        }
     });
 }
 
@@ -104,6 +157,31 @@ function getBasketballApi(){
     })
     .then (function(data){
         console.log(data)
+        for (var i = 0; i < data.teams.length; i++){
+            var sTeamBox = document.createElement("div");
+            var sTeamLogo = document.createElement("img");
+            var sTeamName = document.createElement("p");
+            var sTeamDescription = document.createElement("p");
+            var sTeamWebsite = document.createElement("a");
+
+            sTeamLogo.src = data.teams[i].strTeamBadge;
+            sTeamName.textContent = data.teams[i].strTream;
+            sTeamDescription.textContent = data.teams[i].strDescriptionEN;
+            sTeamWebsite.textContent = data.teams[i].strWebsite;
+            sTeamWebsite.href = data.teams[i].strWebsite;
+            
+            sTeamBox.setAttribute("style", "margin: 5px; border: 2px solid black");
+            sTeamLogo.setAttribute("style", "width: 50px; height: 50px;")
+            sTeamName.setAttribute("style", "font-weight: bold");
+            sTeamDescription.setAttribute("style", "font-size: 16px")
+            sTeamWebsite.setAttribute("style", "font-size: 16px")
+            
+            teamContainer.appendChild(sTeamBox);
+            sTeamBox.appendChild(sTeamLogo);
+            sTeamBox.appendChild(sTeamName);
+            sTeamBox.appendChild(sTeamDescription);
+            sTeamBox.appendChild(sTeamWebsite);
+        }
     });
 }
   
