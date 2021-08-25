@@ -5,6 +5,7 @@ var buttonF = document.getElementById("buttonF");
 var buttonS = document.getElementById("buttonS");
 var buttonBase = document.getElementById("buttonBase");
 var buttonBask = document.getElementById("buttonBask");
+var teamContainer = document.getElementById("teamContainer");
 
 
 function getApi(){
@@ -28,6 +29,8 @@ function getApi(){
 function getFootballApi() {
 
     var footballApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL";
+    //https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4346
+    //https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL
 
     fetch(footballApi)
     .then (function(response){
@@ -52,6 +55,27 @@ function getSoccerApi(){
     })
     .then (function(data){
         console.log(data)
+
+        for (var i = 0; i < teams.length; i++){
+            var teamBox = document.createElement("div");
+            var teamLogo = document.createElement("img");
+            var teamName = document.createElement("p");
+            var teamDescription = document.createElement("p");
+            var teamWebsite = document.createElement("a");
+
+            teamLogo.src = data[i].strTeamBadge;
+            teamName.textContent = data[i].strTream;
+            teamDescription = data[i].strDescriptionEN;
+            teamWebsite = data[i].strWebsite;
+
+            teamBox.setAttribute("style", "margin: 5x");
+
+            teamContainer.appendChild(teamBox);
+            teamBox.appendChild(teamLogo);
+            teamBox.appendChild(teamName);
+            teamBox.appendChild(teamDescription);
+            teamBox.appendChild(teamWebsite);
+        }
     });
 }
 
