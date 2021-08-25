@@ -89,22 +89,33 @@ buttonS.addEventListener("click", getSoccerApi);
 buttonBase.addEventListener("click", getBaseballApi);
 buttonBask.addEventListener("click", getBasketballApi);
 
-var checkBox = $(".checkBox");
+var checkBox = $("#checkBox");
 
-var option1 = $("inlineCheckbox1");
+var option1 = $("#inlineCheckbox1");
+console.log(option1)
 
-var option2 = $("inlineCheckbox2");
+var option2 = $("#inlineCheckbox2");
 
-var option3 = $("inlineCheckbox3");
+var option3 = $("#inlineCheckbox3");
 
-var option4 = $("inlineCheckbox4");
+var option4 = $("#inlineCheckbox4");
 
-var option5 = $("inlineCheckbox5");
+var option5 = $("#inlineCheckbox5");
 
-var option6 = $("inlineCheckbox6");
+var option6 = $("#inlineCheckbox6");
 
 checkBox.on('click', function(){
-    localStorage.setItem("Baseball", (option1.val()));
-    localStorage.setItem("Basketball", (option2.val()));
-    localStorage.setItem("Football", (option3.val()));
+    localStorage.setItem("Baseball", (option1.is()));
+    localStorage.setItem("Basketball", (option2.is()));
+    localStorage.setItem("Football", (option3.is()));
+    localStorage.setItem("Golf", (option4.is()));
+    localStorage.setItem("Hockey", (option5.is()));
+    localStorage.setItem("Soccer", (option6.is()));
 })
+
+$("#inlineCheckbox1").append(localStorage.getItem("Baseball"));
+$("#inlineCheckbox2").append(localStorage.getItem("Basketball"));
+$("#inlineCheckbox3").append(localStorage.getItem("Football"));
+$("#inlineCheckbox4").append(localStorage.getItem("Golf"));
+$("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
+$("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
