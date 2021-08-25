@@ -1,5 +1,6 @@
 console.log("Hello");
 
+//Referencing HTML Buttons//
 var buttonBet = document.getElementById("buttonBet");
 var buttonF = document.getElementById("buttonF");
 var buttonS = document.getElementById("buttonS");
@@ -7,7 +8,7 @@ var buttonBase = document.getElementById("buttonBase");
 var buttonBask = document.getElementById("buttonBask");
 var teamContainer = document.getElementById("checkbox");
 
-
+//Pulling API for Sports Book & Odds of Games//
 function getApi(){
 
     var requestUrl = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
@@ -26,6 +27,7 @@ function getApi(){
     });
   }
 
+//Football API Request//
 function getFootballApi() {
 
     var footballApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL";
@@ -67,6 +69,7 @@ function getFootballApi() {
   
 }
 
+//Soccer API Request//
 function getSoccerApi(){
     var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League";
 
@@ -107,6 +110,7 @@ function getSoccerApi(){
     });
 }
 
+//Baseball API request//
 function getBaseballApi(){
     var baseBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=MLB";
 
@@ -146,6 +150,7 @@ function getBaseballApi(){
     });
 }
 
+//Basketball API request//
 function getBasketballApi(){
     var basketBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
 
@@ -185,6 +190,8 @@ function getBasketballApi(){
     });
 }
   
+
+//Add event Listeners for various Buttons//
 buttonBet.addEventListener("click", getApi);
 buttonF.addEventListener("click", getFootballApi);
 buttonS.addEventListener("click", getSoccerApi);
