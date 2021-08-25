@@ -57,24 +57,24 @@ function getSoccerApi(){
         console.log(data)
 
         for (var i = 0; i < teams.length; i++){
-            var teamBox = document.createElement("div");
-            var teamLogo = document.createElement("img");
-            var teamName = document.createElement("p");
-            var teamDescription = document.createElement("p");
-            var teamWebsite = document.createElement("a");
+            var sTeamBox = document.createElement("div");
+            var sTeamLogo = document.createElement("img");
+            var sTeamName = document.createElement("p");
+            var sTeamDescription = document.createElement("p");
+            var sTeamWebsite = document.createElement("a");
 
-            teamLogo.src = data[i].strTeamBadge;
-            teamName.textContent = data[i].strTream;
-            teamDescription = data[i].strDescriptionEN;
-            teamWebsite = data[i].strWebsite;
+            sTeamLogo.src = data[i].strTeamBadge;
+            sTeamName.textContent = data[i].strTream;
+            sTeamDescription = data[i].strDescriptionEN;
+            sTeamWebsite = data[i].strWebsite;
 
-            teamBox.setAttribute("style", "margin: 5x");
+            sTeamBox.setAttribute("style", "margin: 5x");
 
-            teamContainer.appendChild(teamBox);
-            teamBox.appendChild(teamLogo);
-            teamBox.appendChild(teamName);
-            teamBox.appendChild(teamDescription);
-            teamBox.appendChild(teamWebsite);
+            teamContainer.appendChild(sTeamBox);
+            sTeamBox.appendChild(sTeamLogo);
+            sTeamBox.appendChild(sTeamName);
+            sTeamBox.appendChild(sTeamDescription);
+            sTeamBox.appendChild(sTeamWebsite);
         }
     });
 }
