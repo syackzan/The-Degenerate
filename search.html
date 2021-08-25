@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Bootstrap Link-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -21,27 +21,25 @@
 </head>
 
 <body>
-    <section>
+    <section class="min-vh-100">
         <div class="form" id="form">
-            <div class="card" style="width: 18rem;">
+            <div class="card min-vh-100" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">The Degenerate</h5>
                     <label for="validationCustom01" class="form-label">Date:</label>
-                    <input type="text" class="form-control" id="validationCustom01">
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="April 20, 2021">
                     <label for="validationCustom02" class="form-label">Time</label>
-                    <input type="text" class="form-control" id="validationCustom02">
-                </div>
-                <div class="mb-3">
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="4:20pm">
                     <label for="validationTextarea" class="form-label">Sports Selected:</label>
-                    <textarea class="form-control" id="validationTextarea" placeholder="eg..."></textarea>
+                    <textarea class="form-control" id="validationTextarea" placeholder="LA Rams"></textarea>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="results" id="results">
 
-    </div>
+
+
 </body>
 
 </html>
