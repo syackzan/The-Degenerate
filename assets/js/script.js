@@ -105,3 +105,14 @@ $( function() {
       source: availableTags
     });
   } );
+
+  //Local Storage Checkbox//
+
+  function soccerCS() {	
+	var checkbox = document.getElementById("inlineCheckbox4");
+    localStorage.setItem("soccer", checkbox.checked);	
+}
+
+//for loading
+var checked = JSON.parse(localStorage.getItem("soccer"));
+    document.getElementById("inlineCheckbox4").checked = checked;
