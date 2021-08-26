@@ -7,6 +7,7 @@ var buttonS = document.getElementById("buttonS");
 var buttonBase = document.getElementById("buttonBase");
 var buttonBask = document.getElementById("buttonBask");
 var teamContainer = document.getElementById("checkbox");
+var redirectHTML = "./searchHTML";
 
 //Pulling API for Sports Book & Odds of Games//
 function getApi(){
@@ -154,6 +155,8 @@ function getBaseballApi(){
 function getBasketballApi(){
     var basketBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
 
+    searchHTML();
+
     fetch(basketBallApi)
     .then (function(response){
         console.log(response)
@@ -228,3 +231,41 @@ $("#inlineCheckbox3").append(localStorage.getItem("Football"));
 $("#inlineCheckbox4").append(localStorage.getItem("Golf"));
 $("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
 $("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
+
+//Function Go to Search HTML//
+function searchHTML(){
+    location.storage.href = ""
+}
+
+//DatePicker Widget//
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+//Auto-Fill Time Picker//
+$( function() {
+    var availableTags = [
+      "8:00am",
+      "9:00am",
+      "10:00am",
+      "11:00am",
+      "12:00pm",
+      "1:00pm",
+      "2:00pm",
+      "3:00pm",
+      "4:00pm",
+      "5:00pm",
+      "6:00pm",
+      "7:00pm",
+      "8:00pm",
+      "9:00pm",
+      "10:00pm",
+      "11:00pm",
+      "12:00am",
+      "Now",
+      "Anytime"
+    ];
+    $( "#time" ).autocomplete({
+      source: availableTags
+    });
+  } );

@@ -75,6 +75,15 @@ h3 {
     float: right;
 }
 
+.card {
+    height: 100%;
+
+}
+
+.form-check {
+    margin: 0px 20px;
+}
+
 a {
 color: white;    
 }
