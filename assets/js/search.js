@@ -1,4 +1,5 @@
 var main = document.getElementById("main");
+var headerTwo = document.createElement("h2");
 
 //function to remove url specification into a variable//
 function parameterSelection (){
@@ -11,7 +12,7 @@ function parameterSelection (){
 //Pulling API's and Printing Information on the Console//
 //Order Books API//
 function getApi(){
-
+    
     var requestUrl = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
     //var storage = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";//
 
@@ -31,6 +32,9 @@ function getApi(){
 //Football Teams API Request//
 function getFootballApi() {
 
+    var sporty = "National Football League (NFL) Teams";
+    deleteContent(sporty);
+    
     var footballApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL";
 
     fetch(footballApi)
@@ -72,6 +76,10 @@ function getFootballApi() {
 
 //Soccer Teams API Request//
 function getSoccerApi(){
+    
+    var sporty = "English Premier League (EPL) Teams";
+    deleteContent(sporty);
+    
     var soccerApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=English%20Premier%20League";
 
     fetch(soccerApi)
@@ -113,6 +121,10 @@ function getSoccerApi(){
 
 //Baseball Teams API request//
 function getBaseballApi(){
+    
+    var sporty = "Major League Baseball (MLB) Teams";
+    deleteContent(sporty);
+    
     var baseBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=MLB";
 
     fetch(baseBallApi)
@@ -153,6 +165,10 @@ function getBaseballApi(){
 
 //Basketball Teams API request//
 function getBasketballApi(){
+    
+    var sporty = "National Basketball Association (NBA) Teams"
+    deleteContent(sporty);
+    
     var basketBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
 
     fetch(basketBallApi)
@@ -189,6 +205,12 @@ function getBasketballApi(){
             sTeamBox.appendChild(sTeamWebsite);
         }
     });
+}
+
+function deleteContent(league){
+    main.innerHTML = "";
+    headerTwo.textContent = league;
+    main.appendChild(headerTwo);
 }
 
 //Firing & Pulling URL Element//
