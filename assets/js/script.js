@@ -222,9 +222,16 @@ checkBox.on('click', function(){
     localStorage.setItem("Soccer", (option6.is()));
 })
 
-$("#inlineCheckbox1").append(localStorage.getItem("Baseball"));
+function teststorage(){
+    $("#inlineCheckbox1").is(localStorage.getItem("Baseball"));
+    console.log($("#inlineCheckbox1").is())
+}
+//$("#inlineCheckbox1").is(localStorage.getItem("Baseball"));
+
 $("#inlineCheckbox2").append(localStorage.getItem("Basketball"));
 $("#inlineCheckbox3").append(localStorage.getItem("Football"));
 $("#inlineCheckbox4").append(localStorage.getItem("Golf"));
 $("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
 $("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
+
+teststorage()
