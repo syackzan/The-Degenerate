@@ -58,9 +58,54 @@ checkBox.on('click', function(){
 $("#inlineCheckbox1").append(localStorage.getItem("Baseball"));
 $("#inlineCheckbox2").append(localStorage.getItem("Basketball"));
 $("#inlineCheckbox3").append(localStorage.getItem("Football"));
-$("#inlineCheckbox4").append(localStorage.getItem("Golf"));
-$("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
-$("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
+$("#inlineCheckbox4").append(localStorage.getItem("Soccer"));
+$("#inlineCheckbox5").append(localStorage.getItem("All"));
+
+
+function save() {	
+	var checkbox = document.getElementById("inlineCheckbox1");
+    localStorage.setItem("Baseball", checkbox.checked);	
+}
+
+//for loading
+    var checked = JSON.parse(localStorage.getItem("Baseball"));
+    document.getElementById("inlineCheckbox1").checked = checked;
+
+function save() {	
+	var checkbox = document.getElementById("inlineCheckbox2");
+    localStorage.setItem("Basketball", checkbox.checked);	
+}
+
+//for loading
+    var checked = JSON.parse(localStorage.getItem("Basketball"));
+    document.getElementById("inlineCheckbox2").checked = checked;
+
+function save() {	
+    var checkbox = document.getElementById("inlineCheckbox3");
+        localStorage.setItem("Football", checkbox.checked);	
+    }
+    
+    //for loading
+    var checked = JSON.parse(localStorage.getItem("Football"));
+        document.getElementById("inlineCheckbox3").checked = checked;
+
+function save() {	
+    var checkbox = document.getElementById("inlineCheckbox4");
+            localStorage.setItem("Soccer", checkbox.checked);	
+        }
+        
+        //for loading
+    var checked = JSON.parse(localStorage.getItem("Soccer"));
+    document.getElementById("inlineCheckbox4").checked = checked;
+
+function save() {	
+    var checkbox = document.getElementById("inlineCheckbox5");
+    localStorage.setItem("All", checkbox.checked);	
+    }
+    
+    //for loading
+    var checked = JSON.parse(localStorage.getItem("All"));
+    document.getElementById("inlineCheckbox5").checked = checked;
 
 //Function Go to Search HTML//
 function searchHTML(sport){
