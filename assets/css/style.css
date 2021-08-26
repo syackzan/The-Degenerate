@@ -17,7 +17,6 @@ body {
 .display-4 {
     font-family: 'Anton', sans-serif;
     color: white;
-    text-align: start;
     
 }
 
@@ -60,6 +59,10 @@ h3 {
     padding-right: 20px;
   }
 
+  label {
+    font-family: 'Lato', sans-serif;  
+  }
+
 
   .main {
     margin-left: 300px; /* Same as the width of the sidenav */
@@ -75,8 +78,21 @@ h3 {
     float: right;
 }
 
-a {
-color: white;    
+.card {
+    height: 100%;
+
 }
+
+.form-check {
+    margin: 0px 20px;
+}
+
+a {
+color: white; 
+font-family: 'Lato', sans-serif;   
+margin-top: 20px
+}
+
+
     
 
