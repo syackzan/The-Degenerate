@@ -54,8 +54,7 @@ buttonBask.addEventListener("click", loadBasketballHtml);
 searchButton.addEventListener("click", searchOdds);
 
 
-//
-function save() {	
+function baseballCS() {	
 	var checkbox = document.getElementById("inlineCheckbox1");
     localStorage.setItem("Baseball", checkbox.checked);	
 }
@@ -64,7 +63,7 @@ function save() {
     var checked = JSON.parse(localStorage.getItem("Baseball"));
     document.getElementById("inlineCheckbox1").checked = checked;
 
-function save() {	
+function basketballCS() {	
 	var checkbox = document.getElementById("inlineCheckbox2");
     localStorage.setItem("Basketball", checkbox.checked);	
 }
@@ -73,7 +72,7 @@ function save() {
     var checked = JSON.parse(localStorage.getItem("Basketball"));
     document.getElementById("inlineCheckbox2").checked = checked;
 
-function save() {	
+function footballCS() {	
     var checkbox = document.getElementById("inlineCheckbox3");
         localStorage.setItem("Football", checkbox.checked);	
     }
@@ -82,7 +81,7 @@ function save() {
     var checked = JSON.parse(localStorage.getItem("Football"));
         document.getElementById("inlineCheckbox3").checked = checked;
 
-function save() {	
+function soccerCS() {	
     var checkbox = document.getElementById("inlineCheckbox4");
             localStorage.setItem("Soccer", checkbox.checked);	
         }
@@ -91,7 +90,7 @@ function save() {
     var checked = JSON.parse(localStorage.getItem("Soccer"));
     document.getElementById("inlineCheckbox4").checked = checked;
 
-function save() {	
+function allCS() {	
     var checkbox = document.getElementById("inlineCheckbox5");
     localStorage.setItem("All", checkbox.checked);	
     }
