@@ -18,7 +18,7 @@ function getOddsApi(){
     var soccerContainer = document.createElement("div");
     main.appendChild(soccerContainer);
 
-    var requestUrl = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us&dateFormat=iso";
+    var requestUrl = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
     //var realapi = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
     //var practiceapi = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us"
 
@@ -36,14 +36,16 @@ function getOddsApi(){
         var soccerHeader = document.createElement("p");
         var soccerDate = document.createElement("p");
         var soccerTime = document.createElement("p");
+        var soccerType = document.createElement("p");
         var soccerOdds = document.createElement("p");
-        var soccerHome = document.createElement("p")
+        var soccerHome = document.createElement("p");
 
-        soccerHeader.textContent = data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
-        soccerDate.textContent = data[1].commence_time;
-        soccerTime.textContent = data[1].commence_time;
-        soccerOdds.textContent = data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-        soccerHome.textContent = data[1].away_team;
+        soccerHeader.textContent = "Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
+        soccerDate.textContent = "08/28/21" //data[1].commence_time;
+        soccerTime.textContent = "2:00 ET" //data[1].commence_time;
+        soccerType.textContent = "Money Line Odds";
+        soccerOdds.textContent = "|1.94| Draw: +250 |2.87|" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+        soccerHome.textContent = "Away Team Home" //data[1].away_team;
 
         soccerContainer.appendChild(soccerBox);
         soccerBox.appendChild(soccerHeader);
