@@ -7,6 +7,7 @@ var buttonS = document.getElementById("buttonS");
 var buttonBase = document.getElementById("buttonBase");
 var buttonBask = document.getElementById("buttonBask");
 var teamContainer = document.getElementById("checkbox");
+var redirectHTML = "./searchHTML";
 
 //Pulling API for Sports Book & Odds of Games//
 function getApi(){
@@ -154,6 +155,8 @@ function getBaseballApi(){
 function getBasketballApi(){
     var basketBallApi = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NBA";
 
+    searchHTML();
+
     fetch(basketBallApi)
     .then (function(response){
         console.log(response)
@@ -228,6 +231,11 @@ $("#inlineCheckbox3").append(localStorage.getItem("Football"));
 $("#inlineCheckbox4").append(localStorage.getItem("Golf"));
 $("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
 $("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
+
+//Function Go to Search HTML//
+function searchHTML(){
+    location.storage.href = ""
+}
 
 //DatePicker Widget//
 $( function() {
