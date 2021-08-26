@@ -17,6 +17,7 @@ body {
 .display-4 {
     font-family: 'Anton', sans-serif;
     color: white;
+    text-align: start;
     
 }
 
@@ -68,7 +69,6 @@ h3 {
   
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
   }
 
   .test-button {
