@@ -47,25 +47,65 @@ var option3 = $("#inlineCheckbox3");
 
 var option4 = $("#inlineCheckbox4");
 
-var option5 = $("#inlineCheckbox5");
-
-var option6 = $("#inlineCheckbox6");
-
 checkBox.on('click', function(){
     localStorage.setItem("Baseball", (option1.is()));
     localStorage.setItem("Basketball", (option2.is()));
     localStorage.setItem("Football", (option3.is()));
-    localStorage.setItem("Golf", (option4.is()));
-    localStorage.setItem("Hockey", (option5.is()));
-    localStorage.setItem("Soccer", (option6.is()));
+    localStorage.setItem("soccer", (option4.is()));
+
 })
 
 $("#inlineCheckbox1").append(localStorage.getItem("Baseball"));
 $("#inlineCheckbox2").append(localStorage.getItem("Basketball"));
 $("#inlineCheckbox3").append(localStorage.getItem("Football"));
-$("#inlineCheckbox4").append(localStorage.getItem("Golf"));
-$("#inlineCheckbox5").append(localStorage.getItem("Hocky"));
-$("#inlineCheckbox6").append(localStorage.getItem("Soccer"));
+$("#inlineCheckbox4").append(localStorage.getItem("Soccer"));
+$("#inlineCheckbox5").append(localStorage.getItem("All"));
+
+
+function save() {	
+	var checkbox = document.getElementById("inlineCheckbox1");
+    localStorage.setItem("Baseball", checkbox.checked);	
+}
+
+//for loading
+    var checked = JSON.parse(localStorage.getItem("Baseball"));
+    document.getElementById("inlineCheckbox1").checked = checked;
+
+function save() {	
+	var checkbox = document.getElementById("inlineCheckbox2");
+    localStorage.setItem("Basketball", checkbox.checked);	
+}
+
+//for loading
+    var checked = JSON.parse(localStorage.getItem("Basketball"));
+    document.getElementById("inlineCheckbox2").checked = checked;
+
+function save() {	
+    var checkbox = document.getElementById("inlineCheckbox3");
+        localStorage.setItem("Football", checkbox.checked);	
+    }
+    
+    //for loading
+    var checked = JSON.parse(localStorage.getItem("Football"));
+        document.getElementById("inlineCheckbox3").checked = checked;
+
+function save() {	
+    var checkbox = document.getElementById("inlineCheckbox4");
+            localStorage.setItem("Soccer", checkbox.checked);	
+        }
+        
+        //for loading
+    var checked = JSON.parse(localStorage.getItem("Soccer"));
+    document.getElementById("inlineCheckbox4").checked = checked;
+
+function save() {	
+    var checkbox = document.getElementById("inlineCheckbox5");
+    localStorage.setItem("All", checkbox.checked);	
+    }
+    
+    //for loading
+    var checked = JSON.parse(localStorage.getItem("All"));
+    document.getElementById("inlineCheckbox5").checked = checked;
 
 //Function Go to Search HTML//
 function searchHTML(sport){
@@ -105,6 +145,7 @@ $( function() {
       source: availableTags
     });
   } );
+<<<<<<< HEAD
 
   //Local Storage Checkbox//
 
@@ -116,3 +157,5 @@ $( function() {
 //for loading
 var checked = JSON.parse(localStorage.getItem("soccer"));
     document.getElementById("inlineCheckbox4").checked = checked;
+=======
+>>>>>>> cefd0f531355dd399441e3218b902919375702ad
