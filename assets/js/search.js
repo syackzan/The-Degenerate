@@ -412,6 +412,13 @@ if (parameterSelection() == "football"){
 
 //Hovering Selection//
 
+function close (){
+    console.log("clickb");
+    $(function () {
+        $('#aModal').modal("hide");
+    });
+}
+
 function modalPopUp(event){
     var element = event.target;
     console.log(element);
@@ -421,28 +428,13 @@ function modalPopUp(event){
         $(function () {
             $('#aModal').modal("show");
             $('.modal-title').text("PLACE A BET FOR: ");
-            $('.modal-body-text').text(modalText);
+            $('.modal-body-text').text(modalText); 
         });
-    }
+    } 
 } 
 
-//$('#myModal').modal("show");
-//Storing HTML Elements to Variables//
-var modalB = $("#modalB");
-//var closeM = $(".close");
+$('.close').on('click', close);
 
-//Onclick Event to Show Modal//
-modalB.on("click", openModal);
-//closeM.on("click", closeModal);
-
-function openModal(){
-    console.log("hello");
-    $(function () {
-        $('#aModal').modal("show");
-    });
-}
-
-console.log(soccerContainer);
 soccerContainer.addEventListener("click", function(event){
     modalPopUp(event);
     console.log("click");
