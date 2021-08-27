@@ -1,4 +1,5 @@
 var main = document.getElementById("main");
+var getCheckedstorage = document.getElementById("validationTextarea")
 var headerTwo = document.createElement("h2");
 var sportsContainer = document.createElement("div");
 var moneyPlaced = $("#moneyPlaced");
@@ -460,8 +461,42 @@ if (parameterSelection() == "football"){
     getBasketballApi();
 } else if (parameterSelection() == "odds"){
     getOddsApi();
+    getSportstorage();
 }else {
     console.log("fail");
+}
+
+function getSportstorage(){
+ var footballStorage = localStorage.getItem("Football");
+ var soccerStorage = localStorage.getItem("soccer");
+ var baseballStorage = localStorage.getItem("Baseball");
+ var basketballStorage = localStorage.getItem("Basketball");
+ console.log(footballStorage);
+ if (footballStorage == "true"){
+     console.log("hello");
+    var footballxx = "Football";
+ } else {
+    footballxx = "";
+ }
+ if (soccerStorage == "true"){
+   var soccerxx = "Soccer";
+} else {
+   soccerxx = "";
+}
+if (baseballStorage == "true"){
+    var baseballxx = "Baseball";
+ } else {
+    baseballxx = "";
+ }
+ if (basketballStorage == "true"){
+    var basketballxx = "Basketball";
+ } else {
+    basketballxx = "";
+    console.log(footballxx)
+    console.log(baseballxx)
+
+getCheckedstorage.textContent = footballxx + " " + soccerxx + " " + baseballxx + " " + basketballxx + " ";
+
 }
 
 //Modal A Pop Up Function - Allows you to place a bet//
@@ -514,4 +549,4 @@ sportsContainer.addEventListener("click", function(event){
     modalPopUp(event);
     console.log("click");
 });
-    
+}   
