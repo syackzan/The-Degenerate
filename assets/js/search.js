@@ -18,11 +18,18 @@ function getOddsApi(){
     var soccerContainer = document.createElement("div");
     main.appendChild(soccerContainer);
 
-    var requestUrl = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
+    var requestUrl = "https://api.the-odds-api.com/v3/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5";
     //var realapi = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
     //var practiceapi = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us"
 
-    fetch(requestUrl)
+    //Getting Local Storage Items if user wants to see a sport//
+    var soccerCheck = localStorage.getItem("soccer");
+    var footBallCheck = localStorage.getItem("Football");
+    var baseBallCheck = localStorage.getItem("Baseball");
+    var basketBallCheck = localStorage.getItem("Basketball");
+
+    if(soccerCheck == "true"){
+        fetch(requestUrl)
       .then(function (response) {
         console.log(response);
         if (response.status === 200) {
@@ -32,28 +39,170 @@ function getOddsApi(){
     })
     .then (function(data){
         console.log(data);
-        var soccerBox = document.createElement("div");
-        var soccerHeader = document.createElement("p");
-        var soccerDate = document.createElement("p");
-        var soccerTime = document.createElement("p");
-        var soccerType = document.createElement("p");
-        var soccerOdds = document.createElement("p");
-        var soccerHome = document.createElement("p");
+        
+        for (var i = 0; i < 10; i++){
+            var soccerBox = document.createElement("div");
+            var soccerHeader = document.createElement("p");
+            var soccerDate = document.createElement("p");
+            var soccerTime = document.createElement("p");
+            var soccerType = document.createElement("p");
+            var soccerOdds = document.createElement("p");
+            var soccerHome = document.createElement("p");
 
-        soccerHeader.textContent = "Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
-        soccerDate.textContent = "08/28/21" //data[1].commence_time;
-        soccerTime.textContent = "2:00 ET" //data[1].commence_time;
-        soccerType.textContent = "Money Line Odds";
-        soccerOdds.textContent = "|1.94| Draw: +250 |2.87|" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-        soccerHome.textContent = "Away Team Home" //data[1].away_team;
+            soccerBox.setAttribute("style", "border: 2px solid black; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            soccerContainer.classList.add("d-flex");
+            soccerContainer.classList.add("flex-wrap");
 
-        soccerContainer.appendChild(soccerBox);
-        soccerBox.appendChild(soccerHeader);
-        soccerBox.appendChild(soccerDate);
-        soccerBox.appendChild(soccerTime);
-        soccerBox.appendChild(soccerOdds);
-        soccerBox.appendChild(soccerHome);
+            soccerHeader.textContent = "EPL: Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
+            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
+            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
+            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
+            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
+
+            soccerContainer.appendChild(soccerBox);
+            soccerBox.appendChild(soccerHeader);
+            soccerBox.appendChild(soccerDate);
+            soccerBox.appendChild(soccerTime);
+            soccerBox.appendChild(soccerOdds);
+            soccerBox.appendChild(soccerHome);
+
+        }
     });
+    }
+
+    if(footBallCheck == "true"){
+        fetch(requestUrl)
+      .then(function (response) {
+        console.log(response);
+        if (response.status === 200) {
+          console.log(response.status);
+        }
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data);
+        
+        for (var i = 0; i < 10; i++){
+            var soccerBox = document.createElement("div");
+            var soccerHeader = document.createElement("p");
+            var soccerDate = document.createElement("p");
+            var soccerTime = document.createElement("p");
+            var soccerType = document.createElement("p");
+            var soccerOdds = document.createElement("p");
+            var soccerHome = document.createElement("p");
+
+            soccerBox.setAttribute("style", "border: 2px solid blue; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            soccerContainer.classList.add("d-flex");
+            soccerContainer.classList.add("flex-wrap");
+
+            soccerHeader.textContent = "EPL: Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
+            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
+            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
+            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
+            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
+
+            soccerContainer.appendChild(soccerBox);
+            soccerBox.appendChild(soccerHeader);
+            soccerBox.appendChild(soccerDate);
+            soccerBox.appendChild(soccerTime);
+            soccerBox.appendChild(soccerOdds);
+            soccerBox.appendChild(soccerHome);
+
+        }
+    });
+    }
+
+    if(baseBallCheck == "true"){
+        fetch(requestUrl)
+      .then(function (response) {
+        console.log(response);
+        if (response.status === 200) {
+          console.log(response.status);
+        }
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data);
+        
+        for (var i = 0; i < 10; i++){
+            var soccerBox = document.createElement("div");
+            var soccerHeader = document.createElement("p");
+            var soccerDate = document.createElement("p");
+            var soccerTime = document.createElement("p");
+            var soccerType = document.createElement("p");
+            var soccerOdds = document.createElement("p");
+            var soccerHome = document.createElement("p");
+
+            soccerBox.setAttribute("style", "border: 2px solid red; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            soccerContainer.classList.add("d-flex");
+            soccerContainer.classList.add("flex-wrap");
+
+            soccerHeader.textContent = "EPL: Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
+            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
+            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
+            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
+            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
+
+            soccerContainer.appendChild(soccerBox);
+            soccerBox.appendChild(soccerHeader);
+            soccerBox.appendChild(soccerDate);
+            soccerBox.appendChild(soccerTime);
+            soccerBox.appendChild(soccerOdds);
+            soccerBox.appendChild(soccerHome);
+
+        }
+    });
+    }
+
+    if(basketBallCheck == "true"){
+        fetch(requestUrl)
+      .then(function (response) {
+        console.log(response);
+        if (response.status === 200) {
+          console.log(response.status);
+        }
+        return response.json();
+    })
+    .then (function(data){
+        console.log(data);
+        
+        for (var i = 0; i < 10; i++){
+            var soccerBox = document.createElement("div");
+            var soccerHeader = document.createElement("p");
+            var soccerDate = document.createElement("p");
+            var soccerTime = document.createElement("p");
+            var soccerType = document.createElement("p");
+            var soccerOdds = document.createElement("p");
+            var soccerHome = document.createElement("p");
+
+            soccerBox.setAttribute("style", "border: 2px solid white; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            soccerContainer.classList.add("d-flex");
+            soccerContainer.classList.add("flex-wrap");
+
+            soccerHeader.textContent = "EPL: Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
+            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
+            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
+            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
+            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
+            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
+
+            soccerContainer.appendChild(soccerBox);
+            soccerBox.appendChild(soccerHeader);
+            soccerBox.appendChild(soccerDate);
+            soccerBox.appendChild(soccerTime);
+            soccerBox.appendChild(soccerOdds);
+            soccerBox.appendChild(soccerHome);
+
+        }
+    });
+    }
 
     
 }
