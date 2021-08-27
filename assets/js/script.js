@@ -35,12 +35,10 @@ function loadBasketballHtml(){
 
 //Change to search.html & store date/time into local storage for search.html//
 function searchOdds(){
-    var datepicked = datePicker.value;
-    var timePicked = time.value;
+   
     var placeBet = "odds";
 
-    localStorage.setItem("datePicked", datepicked);
-    localStorage.setItem("time", timePicked);
+
     searchHTML(placeBet);
 }
 
