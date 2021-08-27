@@ -109,6 +109,13 @@ text-decoration: underline;
     text-decoration: none;
 }
 
+section:hover {
+    background-color: lightblue;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    opacity: 95%;
+}
+
 
 
     
