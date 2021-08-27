@@ -20,8 +20,14 @@ body {
     
 }
 
+
+
 .lead {
     color: white;
+}
+
+h2 {
+    margin-top: 30px;
 }
 
 h3 {
@@ -100,7 +106,6 @@ a {
 color: white; 
 font-family: 'Lato', sans-serif;   
 margin-top: 20px;
-text-decoration: underline;
 }
 
 .homeBtn {
@@ -114,6 +119,11 @@ section:hover {
     cursor: pointer;
     box-shadow: 5px 5px 5px black;
     opacity: 95%;
+}
+
+.nav-link:hover {
+    color: lightblue;
+    
 }
 
 
