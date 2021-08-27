@@ -1,6 +1,7 @@
 var main = document.getElementById("main");
 var headerTwo = document.createElement("h2");
 var soccerContainer = document.createElement("div");
+var moneyPlaced = $("#moneyPlaced");
 
 //function to remove url specification into a variable//
 function parameterSelection (){
@@ -410,15 +411,7 @@ if (parameterSelection() == "football"){
     console.log("fail");
 }
 
-//Hovering Selection//
-
-function close (){
-    console.log("clickb");
-    $(function () {
-        $('#aModal').modal("hide");
-    });
-}
-
+//Modal A Pop Up Function - Allows you to place a bet//
 function modalPopUp(event){
     var element = event.target;
     console.log(element);
@@ -433,8 +426,37 @@ function modalPopUp(event){
     } 
 } 
 
+//Closes aModal and opens bModal showing a placed bet//
+function saveYourBet(){
+    var moneyPlacedF = moneyPlaced.val();
+    $(function () {
+        $('#aModal').modal("hide");
+    });
+    $(function () {
+        $('#bModal').modal("show");
+        $('.modal-title').text("BET PLACED!");
+        $('.modal-body-text').text("Congratulations your bet of $" + moneyPlacedF + " is complete"); 
+    });
+}
+
+//Closese Modal when X button is clicked//
+function close (){
+    console.log("clickb");
+    $(function () {
+        $('#aModal').modal("hide");
+    });
+    $(function () {
+        $('#bModal').modal("hide");
+    });
+}
+
+//Calls function above to close Modal//
 $('.close').on('click', close);
 
+//Calls Function to Add Bet and Close Modal//
+$('.btn').on('click', saveYourBet)
+
+//Event Listener To target Soccer Container So modals come up//
 soccerContainer.addEventListener("click", function(event){
     modalPopUp(event);
     console.log("click");
