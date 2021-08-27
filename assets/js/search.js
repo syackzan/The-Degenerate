@@ -1,6 +1,6 @@
 var main = document.getElementById("main");
 var headerTwo = document.createElement("h2");
-var soccerContainer = document.createElement("div");
+var sportsContainer = document.createElement("div");
 var moneyPlaced = $("#moneyPlaced");
 
 //function to remove url specification into a variable//
@@ -17,10 +17,14 @@ function getOddsApi(){
     
     var sporty = "Games & Odds Below";
     deleteContent(sporty);
-    soccerContainer = document.createElement("div");
-    main.appendChild(soccerContainer);
+    sportsContainer = document.createElement("div");
+    main.appendChild(sportsContainer);
 
-    var requestUrl = "https://www.thesportsdb.com/api/v1/json/1/search_all_teams.php?l=NFL"
+    var SrequestUrl = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
+    var fRequestUrl = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
+    var baseRequestUrl = "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
+    var baskRequestUrl = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
+
     //"https://api.the-odds-api.com/v3/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5";
     //var realapi = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
     //var practiceapi = "https://api.the-odds-api.com/v4/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us"
@@ -32,7 +36,7 @@ function getOddsApi(){
     var basketBallCheck = localStorage.getItem("Basketball");
 
     if(soccerCheck == "true"){
-        fetch(requestUrl)
+        fetch(SrequestUrl)
       .then(function (response) {
         console.log(response);
         if (response.status === 200) {
@@ -43,7 +47,7 @@ function getOddsApi(){
     .then (function(data){
         console.log(data);
         
-        for (var i = 0; i < 10; i++){
+        for (var i = 0; i < data.length; i++){
             var soccerBox = document.createElement("section");
             var soccerHeader = document.createElement("p");
             var soccerDate = document.createElement("p");
@@ -52,19 +56,20 @@ function getOddsApi(){
             var soccerOdds = document.createElement("p");
             var soccerHome = document.createElement("p");
 
-            soccerBox.setAttribute("style", "border: 2px solid black; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
-            soccerContainer.classList.add("d-flex");
-            soccerContainer.classList.add("flex-wrap");
+            soccerBox.setAttribute("style", "border: 2px solid green; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            sportsContainer.classList.add("d-flex");
+            sportsContainer.classList.add("flex-wrap");
 
-            soccerHeader.textContent = "EPL: Aston vs. Brentfod*" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
-            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
-            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
-            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
-            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
+            var dateFromApi = data[i].commence_time;
+            var finalDate = changeTimeFormat(dateFromApi);
 
-            soccerContainer.appendChild(soccerBox);
+            soccerHeader.textContent = "EPL: " + data[i].bookmakers[4].markets[0].outcomes[0].name + " vs. " + data[i].bookmakers[4].markets[0].outcomes[1].name + "*";
+            soccerDate.textContent = "Time: " + finalDate;
+            soccerType.textContent = "Money Line Odds: " + data[i].bookmakers[4].markets[0].key
+            soccerOdds.textContent = "| Win: " + data[i].bookmakers[4].markets[0].outcomes[0].price + " | Draw: " + " | Lose:  " + data[i].bookmakers[4].markets[0].outcomes[1].price + " |";
+            soccerHome.textContent = "Home Team: " + data[i].home_team;
+
+            sportsContainer.appendChild(soccerBox);
             soccerBox.appendChild(soccerHeader);
             soccerBox.appendChild(soccerDate);
             soccerBox.appendChild(soccerTime);
@@ -76,7 +81,7 @@ function getOddsApi(){
     }
 
     if(footBallCheck == "true"){
-        fetch(requestUrl)
+        fetch(fRequestUrl)
       .then(function (response) {
         console.log(response);
         if (response.status === 200) {
@@ -86,41 +91,42 @@ function getOddsApi(){
     })
     .then (function(data){
         console.log(data);
-        
-        for (var i = 0; i < 10; i++){
-            var soccerBox = document.createElement("section");
-            var soccerHeader = document.createElement("p");
-            var soccerDate = document.createElement("p");
-            var soccerTime = document.createElement("p");
-            var soccerType = document.createElement("p");
-            var soccerOdds = document.createElement("p");
-            var soccerHome = document.createElement("p");
-
-            soccerBox.setAttribute("style", "border: 2px solid blue; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
-            soccerContainer.classList.add("d-flex");
-            soccerContainer.classList.add("flex-wrap");
-
-            soccerHeader.textContent = "EPL: Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
-            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
-            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
-            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
-            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
-
-            soccerContainer.appendChild(soccerBox);
-            soccerBox.appendChild(soccerHeader);
-            soccerBox.appendChild(soccerDate);
-            soccerBox.appendChild(soccerTime);
-            soccerBox.appendChild(soccerOdds);
-            soccerBox.appendChild(soccerHome);
-
+        for (var i = 0; i < data.length; i++){
+            var sportsBox = document.createElement("section");
+            var sportsHeader = document.createElement("p");
+            var sportsDate = document.createElement("p");
+            var sportsTime = document.createElement("p");
+            var sportsType = document.createElement("p");
+            var sportsOdds = document.createElement("p");
+            var sportsHome = document.createElement("p");
+    
+            sportsBox.setAttribute("style", "border: 2px solid red; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            sportsContainer.classList.add("d-flex");
+            sportsContainer.classList.add("flex-wrap");
+    
+            var dateFromApi = data[i].commence_time;
+            var finalDate = changeTimeFormat(dateFromApi);
+    
+            sportsHeader.textContent = "NFL: " + data[i].bookmakers[0].markets[0].outcomes[0].name + " vs. " + data[i].bookmakers[0].markets[0].outcomes[1].name + "*";
+            sportsDate.textContent = "Time: " + finalDate;
+            sportsType.textContent = "Money Line Odds: " + data[i].bookmakers[0].markets[0].key
+            sportsOdds.textContent = "| Win: " + data[i].bookmakers[0].markets[0].outcomes[0].price + " | Lose:  " + data[i].bookmakers[0].markets[0].outcomes[1].price + " |";
+            sportsHome.textContent = "Home Team: " + data[i].home_team;
+    
+            sportsContainer.appendChild(sportsBox);
+            sportsBox.appendChild(sportsHeader);
+            sportsBox.appendChild(sportsDate);
+            sportsBox.appendChild(sportsTime);
+            sportsBox.appendChild(sportsOdds);
+            sportsBox.appendChild(sportsHome);
+    
         }
+        
     });
     }
 
     if(baseBallCheck == "true"){
-        fetch(requestUrl)
+        fetch(baseRequestUrl)
       .then(function (response) {
         console.log(response);
         if (response.status === 200) {
@@ -131,40 +137,41 @@ function getOddsApi(){
     .then (function(data){
         console.log(data);
         
-        for (var i = 0; i < 10; i++){
-            var soccerBox = document.createElement("section");
-            var soccerHeader = document.createElement("p");
-            var soccerDate = document.createElement("p");
-            var soccerTime = document.createElement("p");
-            var soccerType = document.createElement("p");
-            var soccerOdds = document.createElement("p");
-            var soccerHome = document.createElement("p");
-
-            soccerBox.setAttribute("style", "border: 2px solid red; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
-            soccerContainer.classList.add("d-flex");
-            soccerContainer.classList.add("flex-wrap");
-
-            soccerHeader.textContent = "EPL: Aston vs. Brentfod*" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
-            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
-            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
-            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
-            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
-
-            soccerContainer.appendChild(soccerBox);
-            soccerBox.appendChild(soccerHeader);
-            soccerBox.appendChild(soccerDate);
-            soccerBox.appendChild(soccerTime);
-            soccerBox.appendChild(soccerOdds);
-            soccerBox.appendChild(soccerHome);
-
+        for (var i = 0; i < data.length; i++){
+            var sportsBox = document.createElement("section");
+            var sportsHeader = document.createElement("p");
+            var sportsDate = document.createElement("p");
+            var sportsTime = document.createElement("p");
+            var sportsType = document.createElement("p");
+            var sportsOdds = document.createElement("p");
+            var sportsHome = document.createElement("p");
+    
+            sportsBox.setAttribute("style", "border: 2px solid blue; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            sportsContainer.classList.add("d-flex");
+            sportsContainer.classList.add("flex-wrap");
+    
+            var dateFromApi = data[i].commence_time;
+            var finalDate = changeTimeFormat(dateFromApi);
+    
+            sportsHeader.textContent = "MLB: " + data[i].bookmakers[0].markets[0].outcomes[0].name + " vs. " + data[i].bookmakers[0].markets[0].outcomes[1].name + "*";
+            sportsDate.textContent = "Time: " + finalDate;
+            sportsType.textContent = "Money Line Odds: " + data[i].bookmakers[0].markets[0].key
+            sportsOdds.textContent = "| Win: " + data[i].bookmakers[0].markets[0].outcomes[0].price + " | Lose:  " + data[i].bookmakers[0].markets[0].outcomes[1].price + " |";
+            sportsHome.textContent = "Home Team: " + data[i].home_team;
+    
+            sportsContainer.appendChild(sportsBox);
+            sportsBox.appendChild(sportsHeader);
+            sportsBox.appendChild(sportsDate);
+            sportsBox.appendChild(sportsTime);
+            sportsBox.appendChild(sportsOdds);
+            sportsBox.appendChild(sportsHome);
+    
         }
     });
     }
 
     if(basketBallCheck == "true"){
-        fetch(requestUrl)
+        fetch(baskRequestUrl)
       .then(function (response) {
         console.log(response);
         if (response.status === 200) {
@@ -175,39 +182,74 @@ function getOddsApi(){
     .then (function(data){
         console.log(data);
         
-        for (var i = 0; i < 10; i++){
-            var soccerBox = document.createElement("section");
-            var soccerHeader = document.createElement("p");
-            var soccerDate = document.createElement("p");
-            var soccerTime = document.createElement("p");
-            var soccerType = document.createElement("p");
-            var soccerOdds = document.createElement("p");
-            var soccerHome = document.createElement("p");
-
-            soccerBox.setAttribute("style", "border: 2px solid white; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
-            soccerContainer.classList.add("d-flex");
-            soccerContainer.classList.add("flex-wrap");
-
-            soccerHeader.textContent = "EPL: Aston vs. Brentfod" //data[1].bookmakers[4].markets[0].outcomes[0].name + "vs." + data[1].bookmakers[4].markets[0].outcomes[1].name;
-            soccerOdds.textContent = "|+1100 Win| Draw: +250 |+126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerDate.textContent = "Date: 08/28/21" //data[1].commence_time;
-            soccerTime.textContent = "Time: 2:00 ET" //data[1].commence_time;
-            soccerType.textContent = "Money Line Odds"; //data[1].bookmakers[4].markets[0].key
-            soccerOdds.textContent = "|Win: +1100| Loss: +250 | Draw: +126 |" //data[1].bookmakers[4].markets[0].outcomes[0].price + "  " + data[1].bookmakers[4].markets[0].key + "  " + data[1].bookmakers[4].markets[0].outcomes[1].price;
-            soccerHome.textContent = "Home Team: Aston Villa" //data[1].away_team;
-
-            soccerContainer.appendChild(soccerBox);
-            soccerBox.appendChild(soccerHeader);
-            soccerBox.appendChild(soccerDate);
-            soccerBox.appendChild(soccerTime);
-            soccerBox.appendChild(soccerOdds);
-            soccerBox.appendChild(soccerHome);
-
+        for (var i = 0; i < data.length; i++){
+            var sportsBox = document.createElement("section");
+            var sportsHeader = document.createElement("p");
+            var sportsDate = document.createElement("p");
+            var sportsTime = document.createElement("p");
+            var sportsType = document.createElement("p");
+            var sportsOdds = document.createElement("p");
+            var sportsHome = document.createElement("p");
+    
+            sportsBox.setAttribute("style", "border: 2px solid white; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+            sportsContainer.classList.add("d-flex");
+            sportsContainer.classList.add("flex-wrap");
+    
+            var dateFromApi = data[i].commence_time;
+            var finalDate = changeTimeFormat(dateFromApi);
+    
+            sportsHeader.textContent = "NBA: " + data[i].bookmakers[0].markets[0].outcomes[0].name + " vs. " + data[i].bookmakers[0].markets[0].outcomes[1].name + "*";
+            sportsDate.textContent = "Time: " + finalDate;
+            sportsType.textContent = "Money Line Odds: " + data[i].bookmakers[0].markets[0].key
+            sportsOdds.textContent = "| Win: " + data[i].bookmakers[0].markets[0].outcomes[0].price + " | Lose:  " + data[i].bookmakers[0].markets[0].outcomes[1].price + " |";
+            sportsHome.textContent = "Home Team: " + data[i].home_team;
+    
+            sportsContainer.appendChild(sportsBox);
+            sportsBox.appendChild(sportsHeader);
+            sportsBox.appendChild(sportsDate);
+            sportsBox.appendChild(sportsTime);
+            sportsBox.appendChild(sportsOdds);
+            sportsBox.appendChild(sportsHome);
+    
         }
     });
     }
 
     
+}
+
+function runApiOdds (data){
+    
+    for (var i = 0; i < data.length; i++){
+        var sportsBox = document.createElement("section");
+        var sportsHeader = document.createElement("p");
+        var sportsDate = document.createElement("p");
+        var sportsTime = document.createElement("p");
+        var sportsType = document.createElement("p");
+        var sportsOdds = document.createElement("p");
+        var sportsHome = document.createElement("p");
+
+        sportsBox.setAttribute("style", "border: 2px solid black; width: 300px; border-radius: 5px; font-size: 16px; margin: 5px; text-align: center; padding: 2px");
+        sportsContainer.classList.add("d-flex");
+        sportsContainer.classList.add("flex-wrap");
+
+        var dateFromApi = data[i].commence_time;
+        var finalDate = changeTimeFormat(dateFromApi);
+
+        sportsHeader.textContent = "NFL: " + data[i].bookmakers[0].markets[0].outcomes[0].name + " vs. " + data[i].bookmakers[0].markets[0].outcomes[1].name + "*";
+        sportsDate.textContent = "Time: " + finalDate;
+        sportsType.textContent = "Money Line Odds: " + data[i].bookmakers[0].markets[0].key
+        sportsOdds.textContent = "| Win: " + data[i].bookmakers[0].markets[0].outcomes[0].price + " | Lose:  " + data[i].bookmakers[0].markets[0].outcomes[1].price + " |";
+        sportsHome.textContent = "Home Team: " + data[i].home_team;
+
+        sportsContainer.appendChild(sportsBox);
+        sportsBox.appendChild(sportsHeader);
+        sportsBox.appendChild(sportsDate);
+        sportsBox.appendChild(sportsTime);
+        sportsBox.appendChild(sportsOdds);
+        sportsBox.appendChild(sportsHome);
+
+    }
 }
 
 //Football Teams API Request//
@@ -388,6 +430,17 @@ function getBasketballApi(){
     });
 }
 
+function retrieveAPI(data){
+
+}
+
+function changeTimeFormat(dateTime){
+    console.log(dateTime);
+    var formattedDate = moment(dateTime).format("M/D/YY @ H:mm PT")
+    
+    return formattedDate;
+}
+
 function deleteContent(league){
     main.innerHTML = "";
     headerTwo.textContent = league;
@@ -457,7 +510,7 @@ $('.close').on('click', close);
 $('.btn').on('click', saveYourBet)
 
 //Event Listener To target Soccer Container So modals come up//
-soccerContainer.addEventListener("click", function(event){
+sportsContainer.addEventListener("click", function(event){
     modalPopUp(event);
     console.log("click");
 });
