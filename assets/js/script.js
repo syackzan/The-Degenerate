@@ -7,6 +7,9 @@ var buttonS = document.getElementById("buttonS");
 var buttonBase = document.getElementById("buttonBase");
 var buttonBask = document.getElementById("buttonBask");
 var teamContainer = document.getElementById("checkbox");
+var searchButton = document.getElementById("searchButton");
+var datePicker = document.getElementById("datepicker");
+var time = document.getElementById("time");
 var redirectHTML = "./search.html";
 
 //Loading Specific Strings in the Parameters//
@@ -30,36 +33,25 @@ function loadBasketballHtml(){
     searchHTML(basketball);
 }
 
+//Change to search.html & store date/time into local storage for search.html//
+function searchOdds(){
+    var datepicked = datePicker.value;
+    var timePicked = time.value;
+    var placeBet = "odds";
+
+    localStorage.setItem("datePicked", datepicked);
+    localStorage.setItem("time", timePicked);
+    searchHTML(placeBet);
+}
+
 //Add event Listeners for various Buttons//
+//Nav Bar Buttons//
 buttonF.addEventListener("click", loadFootballHtml);
 buttonS.addEventListener("click", loadSoccerHtml);
 buttonBase.addEventListener("click", loadBaseballHtml);
 buttonBask.addEventListener("click", loadBasketballHtml);
-
-var checkBox = $("#checkBox");
-
-var option1 = $("#inlineCheckbox1");
-console.log(option1)
-
-var option2 = $("#inlineCheckbox2");
-
-var option3 = $("#inlineCheckbox3");
-
-var option4 = $("#inlineCheckbox4");
-
-checkBox.on('click', function(){
-    localStorage.setItem("Baseball", (option1.is()));
-    localStorage.setItem("Basketball", (option2.is()));
-    localStorage.setItem("Football", (option3.is()));
-    localStorage.setItem("soccer", (option4.is()));
-
-})
-
-$("#inlineCheckbox1").append(localStorage.getItem("Baseball"));
-$("#inlineCheckbox2").append(localStorage.getItem("Basketball"));
-$("#inlineCheckbox3").append(localStorage.getItem("Football"));
-$("#inlineCheckbox4").append(localStorage.getItem("Soccer"));
-$("#inlineCheckbox5").append(localStorage.getItem("All"));
+//Search Button//
+searchButton.addEventListener("click", searchOdds);
 
 
 function baseballCS() {	
@@ -145,3 +137,14 @@ $( function() {
       source: availableTags
     });
   } );
+
+  //Local Storage Checkbox//
+
+function soccerCS() {	
+var checkbox = document.getElementById("inlineCheckbox4");
+localStorage.setItem("soccer", checkbox.checked);	
+}
+
+//for loading
+var checked = JSON.parse(localStorage.getItem("soccer"));
+    document.getElementById("inlineCheckbox4").checked = checked;
