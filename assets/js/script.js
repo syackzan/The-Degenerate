@@ -88,14 +88,14 @@ function soccerCS() {
     var checked = JSON.parse(localStorage.getItem("Soccer"));
     document.getElementById("inlineCheckbox4").checked = checked;
 
-function allCS() {	
-    var checkbox = document.getElementById("inlineCheckbox5");
-    localStorage.setItem("All", checkbox.checked);	
-    }
+// function allCS() {	
+//     var checkbox = document.getElementById("inlineCheckbox5");
+//     localStorage.setItem("All", checkbox.checked);	
+//     }
     
-    //for loading
-    var checked = JSON.parse(localStorage.getItem("All"));
-    document.getElementById("inlineCheckbox5").checked = checked;
+//     //for loading
+//     var checked = JSON.parse(localStorage.getItem("All"));
+//     document.getElementById("inlineCheckbox5").checked = checked;
 
 //Function Go to Search HTML//
 function searchHTML(sport){
