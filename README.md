@@ -27,7 +27,23 @@ WHEN I look inside a specific sports card
 THEN I am presented with information pertaining to time of the event, who is playing, and odds of that game.
 WHEN I click on a team name
 THEN I am presented with a list of injuries for that team
+
+## Technologies Used
+
+HTML, CSS, JS, JS Query, Bootstrap, GoogleFonts, Live Odds API, Sports DB API, Moment.JS, Jquery Widgets
 ```
 
 ## Link & Image of Website
+
+Link: https://syackzan.github.io/The-Degenerate/
+
+Images:
+
+Home Page:
+<img src="./assets/images/homePage.png" alt="Home Page" />
+
+Search Page:
+<img src="./assets/images/searchPage.png" alt="Searched Page" />
+
+
 
