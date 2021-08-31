@@ -107,7 +107,7 @@ function getOddsApi(){
     
             var dateFromApi = data[i].commence_time;
             var finalDate = changeTimeFormat(dateFromApi);
-    
+
             sportsHeader.textContent = "NFL: " + data[i].bookmakers[0].markets[0].outcomes[0].name + " vs. " + data[i].bookmakers[0].markets[0].outcomes[1].name + "*";
             sportsDate.textContent = "Time: " + finalDate;
             sportsType.textContent = "Money Line Odds: " + data[i].bookmakers[0].markets[0].key
@@ -436,7 +436,7 @@ function retrieveAPI(data){
 }
 
 function changeTimeFormat(dateTime){
-    console.log(dateTime);
+    //console.log(dateTime);
     var formattedDate = moment(dateTime).format("M/D/YY @ H:mm PT")
     
     return formattedDate;
@@ -471,27 +471,31 @@ function getSportstorage(){
  var soccerStorage = localStorage.getItem("soccer");
  var baseballStorage = localStorage.getItem("Baseball");
  var basketballStorage = localStorage.getItem("Basketball");
- console.log(footballStorage);
+ console.log(baseballStorage);
  if (footballStorage == "true"){
      console.log("hello");
     var footballxx = "Football";
  } else {
     footballxx = "";
  }
+
  if (soccerStorage == "true"){
    var soccerxx = "Soccer";
 } else {
    soccerxx = "";
 }
+
 if (baseballStorage == "true"){
     var baseballxx = "Baseball";
  } else {
     baseballxx = "";
  }
+
  if (basketballStorage == "true"){
     var basketballxx = "Basketball";
  } else {
     basketballxx = "";
+ }
     console.log(footballxx)
     console.log(baseballxx)
 
@@ -549,4 +553,4 @@ sportsContainer.addEventListener("click", function(event){
     modalPopUp(event);
     console.log("click");
 });
-}   
+   
