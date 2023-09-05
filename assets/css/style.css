@@ -1,8 +1,8 @@
 * {
-    
+
     margin: 0px;
     border: 0;
-   
+
 }
 
 body {
@@ -10,14 +10,14 @@ body {
 }
 
 .jumbotron {
-    background-color:rgb(2, 124, 2);
-    
+    background-color: rgb(2, 124, 2);
+
 }
 
 .display-4 {
     font-family: 'Anton', sans-serif;
     color: white;
-    
+
 }
 
 
@@ -64,31 +64,51 @@ h3 {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-  }
+}
 
-  .title {
+.title {
     font-family: 'Anton', sans-serif;
     color: black
-  }
+}
 
-  label {
-    font-family: 'Lato', sans-serif;  
+label {
+    font-family: 'Lato', sans-serif;
     padding-top: 10px;
     padding-bottom: 10px;
-  }
+}
 
 
-  .main {
-    margin-left: 300px; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
+.main {
+    margin-left: 300px;
+    /* Same as the width of the sidenav */
+    font-size: 28px;
+    /* Increased text to enable scrolling */
     padding: 0px 10px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-  }
+}
 
-  .test-button {
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+}
+
+@media(max-width: 650px)
+{
+    .sidenav{
+        display: none;
+        width: 0px;
+    }
+
+    .main{
+        margin-left: 0px;
+    }
+
+    .nav-link{
+        display: none;
+    }
+}
+
+.test-button {
     float: right;
 }
 
@@ -103,9 +123,9 @@ h3 {
 }
 
 a {
-color: white; 
-font-family: 'Lato', sans-serif;   
-margin-top: 20px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    margin-top: 20px;
 }
 
 .homeBtn {
@@ -123,10 +143,5 @@ section:hover {
 
 .nav-link:hover {
     color: lightblue;
-    
+
 }
-
-
-
-    
-
