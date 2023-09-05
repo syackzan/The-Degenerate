@@ -21,10 +21,10 @@ function getOddsApi(){
     sportsContainer = document.createElement("div");
     main.appendChild(sportsContainer);
 
-    var SrequestUrl = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
-    var fRequestUrl = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
-    var baseRequestUrl = "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
-    var baskRequestUrl = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
+    var SrequestUrl = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=c7154c88780e41e6a633dec85ec47bfb&regions=us";
+    var fRequestUrl = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=c7154c88780e41e6a633dec85ec47bfb&regions=us";
+    var baseRequestUrl = "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds/?apiKey=c7154c88780e41e6a633dec85ec47bfb&regions=us";
+    var baskRequestUrl = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=c7154c88780e41e6a633dec85ec47bfb&regions=us";
 
     //"https://api.the-odds-api.com/v3/sports/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5";
     //var realapi = "https://api.the-odds-api.com/v4/sports/soccer_epl/odds/?apiKey=b66e7e8c0ff61e849ff05e77c6e4e2d5&regions=us";
